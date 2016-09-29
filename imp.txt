@@ -1,0 +1,48 @@
+We need to bootstrap our mini application. The easiest way of doing so is by using the custom
+ng-app HTML attribute.
+
+We can use ng-init to initialize model before a template gets rendered.
+
+In the AngularJS, all the special HTML tags and attributes that the framework can
+understand and interpret are referred to as directives.
+
+A $scope object in AngularJS is here to expose the domain model to a view
+(template). By assigning properties to scope instances, we can make new
+values available to a template for rendering.
+
+<div ng-controller="HelloCtrl">
+Say hello to: <input type="text" ng-model="name"><br>
+<h1>Hello, {{name}}!</h1>
+</div>
+
+var HelloCtrl = function ($scope) {
+$scope.name = 'World';
+}
+-----------------------------------------------------------------------------------------------	
+We can expose UI-specific logic to templates by defining functions on a
+scope instance.
+
+var HelloCtrl = function ($scope) {
+$scope.getName = function() {
+return $scope.name;
+};
+}
+-------------------------------------------------------------------------------
+
+The primary responsibility of a controller is to initialize scope objects. In practice,
+the initialization logic consists of the following responsibilities:
+• Providing initial model values
+• Augmenting $scope with UI-specific behavior (functions)
+Controllers are regular JavaScript functions. They don't have to extend any
+framework-specific classes nor call any particular AngularJS APIs to correctly
+perform their job.
+
+Please note that a controller does the same job as the ng-init
+directive, when it comes to setting up initial model values.
+Controllers make it possible to express this initialization logic
+in JavaScript, without cluttering HTML templates with code.
+
+ng-app 
+ng-init
+ng-model
+ng-controller 	
